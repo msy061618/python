@@ -1,0 +1,106 @@
+<html>
+    <head>
+    <style>
+     body
+    {   
+        background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcrUhR40wwJYCF0YzWNpfSAFFT_q76h_ODWT4T0jxF7yLpSed2hH_gX7sLdWzBBJlaN5E&usqp=CAU");
+        backdrop-filter:blur(8px);
+        background-repeat:no-repeat;
+        background-size:100% 100%;
+        background-attachment:fixed;
+        background-position: center;
+        }
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    table {
+        counter-reset: rowNumber;
+    }
+    th {
+        background-color: #37ecaa;
+        color: rgb(0, 0, 0);
+        }    
+
+    table tr {
+        counter-increment:rowNumber;
+    }
+
+    table tr td:first-child::before {
+        content: counter(rowNumber);
+        min-width: 1em;
+        margin-right: 0.5em;
+    }
+    tr:nth-child(even) {
+        background-color: #f3d7d7;
+    }
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 20px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+    }
+
+    .button:hover {background-color: #3e8e41}
+
+    .button:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+    </style>
+    </head>
+ 
+    {% block content %}
+    <body>
+        <h1>Overall Report</h1>
+        <table style="width: auto;">
+            <tr>
+                <th>SI.NO</th>
+                <th>Name of joiner</th>
+                <th>Phone number</th>
+                <th>Father/Mother Name</th>
+                <th>Father Phone No.</th>
+                <th>Permanent address</th>
+                <th>Student/Employee</th>
+                <th>Name of organization</th>
+                <th>Relative/Friend</th>
+                <th>Name of Rel/Frd</th>
+                <th>Contact No.</th>
+                <th>Room No.</th>
+                <th>Date of joining</th>
+                <th>Amount paid</th>
+                <th>Delete Column</th>
+            </tr>
+            {% for mod in model %}
+            <tr>
+                <td></td>
+                <td>{{mod.Enter_Your_Name}}</td>
+                <td>{{mod.Phone_Number}}</td>
+                <td>{{mod.Enter_Your_Father_Name}}</td>
+                <td>{{mod.Father_Phone_No}}</td>
+                <td>{{mod.Permanent_Address}}</td>
+                <td>{{mod.Select_Student_or_Employee}}</td>
+                <td>{{mod.Enter_Name_of_Your_Organization}}</td>
+                <td>{{mod.Emergency_Contact_Per}}</td>
+                <td>{{mod.Enter_their_name}}</td>
+                <td>{{mod.Contact_No}}</td>
+                <td>{{mod.Choose_Room_No}}</td>
+                <td>{{mod.Date_Of_Joining}}</td>
+                <td>{{mod.Rent_Amount_Paid}}</td>
+                <td> <button><a href="/delete/{{mod.id}}">Delete</a></button></td>
+                {% endfor %}
+            </tr>
+        </table>
+        <a href="http://127.0.0.1:8000/rrc/"><button  class="button" type="button">Add New Joiner</button></a>
+    {% endblock %}
+    </body>
+</html>

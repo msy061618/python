@@ -1,0 +1,179 @@
+{% load static %}
+<html>
+    {% block content %}
+    <head>    
+        <style>
+            body
+            {   
+                background-image:
+                url("https://www.tajhotels.com/content/dam/vivanta/hotels/vbt-taj-wellington-mews/images/One-Bedroom-Apartment-Kitchen-1.jpg/jcr:content/renditions/cq5dam.web.756.756.jpeg");
+                backdrop-filter:blur(2px);
+                background-repeat:no-repeat;
+                background-size:100% 100%;
+                background-attachment:fixed;
+                background-position: center;
+            }
+            label 
+            {
+                color:LightYellow;
+                font-size:30px;
+                width:700px;
+                display: inline-block;
+            }
+
+            button
+            {
+                font-size:50px;
+            }
+
+            input[type='text'] 
+            {
+                color: Black;
+                font-weight: bold;
+                background: LightSteelBlue;  
+                font-size:20px;
+            }
+            input[type='tel'] 
+            {
+                color: Black;
+                font-weight: bold;
+                background: LightSteelBlue;  
+                font-size:20px;
+            }
+            
+            div.first_frm 
+            {
+                margin:auto;
+                background-color:Lavender;
+                width: 1000px;
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+                color: white;
+            }
+
+            div.second_frm
+            {
+                margin:auto;
+                background-color:Lavender;
+                width: 1000px;
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+                color: white;
+            }
+
+            .btn 
+            {
+                box-shadow: 0px 0px 25px rgb(243, 25, 25);
+                border-radius: 15px;
+                background:LimeGreen;
+                width: 700px;
+                height: 50px;
+                font-size:larger;
+            }
+
+            .container 
+            { 
+                height:10px;
+                position: relative; 
+            }
+
+            .center 
+            {
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+            
+
+
+        </style>
+    </head>
+    <body>
+            <br><br><br>
+        <div style='text-align:center;'>
+            <h1 style='display:inline; color:MediumBlue; font-size:60px; text-align:center; font-family:redserifs;'><u>RRC Mansions' Chennai</u></h1><br>
+            <p style=' display:inline; color:MediumBlue; font-size:20px; text-align:center; font-family:redserifs;'>No.5, 2nd Street Mummurthy Nagar, New Colony, Chrompet, Chennai, Tamilnadu.</p>
+        </div>
+            <br><br>
+        <h2 style='color:MediumBlue; font-weight: Bold; font-size:50px; text-align:center; font-family:Sofia", sans-serif;'><i>Registration Form</i></h2>
+        
+
+        
+        <form method="POST">
+            
+            <div class ='first_frm' style='text-align:left; border: 5px solid LightSlateGray;'>
+                <label for='Name'><b>Enter Your Name: </b></label>
+                    {{form.Enter_Your_Name}}
+                <br> 
+                <label for = 'Phone_number'><b>Phone Number: </b></label>
+                    {{form.Phone_Number}}
+                <br>
+                <label  for='fat/mot_Name'><b>Enter Your Father/Mother Name: </b></label>
+                    {{form.Enter_Your_Father_Name}}
+                <br> 
+                <label for = 'fat/mot_Phone_number'><b>Father/Mother Phone Number: </b></label>
+                    {{form.Father_Phone_No}}
+                <br>
+                <label for='per_addr'><b>Permanent Address: </b></label>
+                    {{form.Permanent_Address}}
+                <br>
+        
+            </div><br><br>
+        
+            <div class ='second_frm' style='text-align:left; border:5px solid LightSlateGray;'>
+        
+                <label for='Student/employee'><b>Select Student/Employee:</b></label>
+                    {{form.Select_Student_or_Employee}}
+                <br>
+                <label for='Name of the organization'><b>Enter the name of your organization: </b></label>
+                    {{form.Enter_Name_of_Your_Organization}}
+                <br>
+        
+            </div><br><br>
+        
+            <div class ='second_frm' style='text-align:left; border:5px solid LightSlateGray;'>
+        
+                <label for='relative/friend'><b>Emergency Contact Person(Relative/friend):</b></label>
+                    {{form.Emergency_Contact_Per}}
+                <br>
+                <label for='Rel/frd Name'><b>Enter their name: </b></label>
+                    {{form.Enter_their_name}}
+                <br>
+                <label for='phone_rel/frd'><b>Contact No: </b></label>
+                    {{form.Contact_No}}
+        
+            </div><br><br>
+        
+            <div class ='second_frm' style='text-align:left; border:5px solid LightSlateGray;'>
+        
+                <label for='choose_roomNo'><b>Choose Room_No:</b></label>
+                    {{form.Choose_Room_No}}
+                <br>
+                <label for='Date_of_join'><b>Date of Joining: </b></label>
+                    {{form.Date_Of_Joining}}
+                <br>
+                <label for='Rent_amount_paid'><b>Rent Amount(paided):</b> </label>
+                    {{form.Rent_Amount_Paid}}
+            </div>
+        
+            <br><br><br><br><br><br><br>
+        
+            {% csrf_token %}
+            <div class="container">
+              <div  class="center" >
+                <button class="btn" type='submit' value="Add joiner"><b><u>Submit</u></b></button> 
+              </div>
+            </div>
+            <br><br><br>
+        </form>    
+
+        <h2 style="text-align: center;color:rgb(0, 0, 0)"><Strong>Note:</Strong>Kindly provide hardcopy of your ID Proof
+            (Adhar/Voter ID/Driving Licence)to our Incharge</h2>
+        <h3 style="text-align: center;color:rgb(7, 1, 1)">Thank You, Have a nice day...</h3>
+        <br><br><br>
+    </body>
+    {% endblock %}
+</html>
